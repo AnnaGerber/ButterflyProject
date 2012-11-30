@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>An exploration of the Butterfly Effect</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/amelia.bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/colorbrewer.css" rel="stylesheet">
+    <link href="bootstrap/css/voronoi.css" rel="stylesheet">
+    <script src="bootstrap/js/voronoi.js" type="text/javascript"></script>
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="bootstrap/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="bootstrap/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="bootstrap/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="bootstrap/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="bootstrap/ico/apple-touch-icon-57-precomposed.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#"><img style="height:20px" src="images/Butterfly.png"></a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+	      <li><a href="cosmwrapper.html">Sensor stream</a></li>
+	      <li><a href="vis.html">Data visualisation</a></li>
+	      <li><a href="#acknowledgements">Acknowledgements</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="hero-unit">
+	<h1>Butterfly Project</h1>
+        <p>Exploring the Fundamental Interconnectedness of All Things</p>
+      </div>
+      
+      <section id="about">
+      <div class="page-header">
+        <h1>About</h1>
+	<p>In the <i>Butterfly Project</i>, we explore the the butterfly effect, described by Edward Lorenz, where small changes in one place, such as the flapping of the wings of a butterfly, can result in large changes, like a hurricane, elsewhere. Or, as Douglas Adams puts it:</p>
+	<blockquote>what we are concerned with here is the fundamental interconnectedness of all things ... The connections between causes and effects are often much more subtle and complex than we with our rough and ready understanding of the physical world might naturally suppose
+	  <small>Douglas Adams, Dirk Gently's Holistic Detective Agency</small>
+        </blockquote>
+
+	<p>This project utilizes a global network of sensor data published through services such as <a href="http://cosm.com">cosm.com</a>, contributing local sensor data, and aggregating sensor data from around the world, with the aim of enabling people to discover and explore correlations between seemingly unrelated sensor data streams.</p>
+<p>As the internet of things expands and the amount of sensor data available online increases, data visualisation tools such as these will contribute to our improved understanding of the nature of the fundamental interconnectedness of all things.</p>
+      </div>
+
+
+      </section>
+
+      <section id="implementation">
+
+
+	<div class="row">
+	  <div class="span6">
+	<img class="img-rounded" style="max-width:400px" src="images/sensor.jpg">
+	  </div>
+	  <div class="span6">
+        <h2>Implementation</h2>
+	<h3>Sensor unit: the metaphorical butterfly</h3>
+	<ul>
+	  <li>An Arduino nano microcontroller polls the DHT11 temperature and humidity sensor periodically to obtain readings</li>
+	  <li>The Arduino publishes the sensor values as CSV via Serial</li>
+	  <li>Implemented using Arduino wiring language</li>
+	</ul>
+	<h3>Publication of the sensor stream</h3>
+	<ul>
+	  <li>The publishing module listens via Serial, parses and publishes the sensor values to COSM.</li>
+	  <li>Implemented in Java</li>
+	</ul>
+	<h3>Visualisation</h3>
+	<ul>
+	  <li>The visualisation service retrieves sensor values for this stream and others around the world using the COSM API.</li>
+	  <li>Implemented in PHP and HTML5</li>
+	  <li>Deployed on the NeCTAR research cloud</li>
+	</ul>
+
+	  </div>
+        </div>
+
+      </section>
+
+      <section id="contact">
+      <div class="page-header">
+        <h1>Contact</h1>
+      </div>
+
+	<p>Anna Gerber, <a href="mailto:a.gerber@uq.edu.au">a.gerber@uq.edu.au</a></p>
+      </section>
+
+      <section id="acknowledgements">
+      <div class="page-header">
+        <h1>Acknowledgements</h1>
+      </div>
+        
+	<ul>
+	  <li>Thanks to Lianli (Juana) Gao for her encouragement and input</li>
+	  <li><a href="http://twitter.github.com/bootstrap/">Twitter bootstrap</a> with <a href="http://bootswatch.com/">Bootswatch Amelia template</a></li>
+	  <li><a href="http://www.softicons.com/free-icons/toolbar-icons/48x48-free-object-icons-by-aha-soft/butterfly-icon">Butterfly icon, Aha-Soft, CC Attribution 3.0 United States </a></li>
+	</ul>
+      </section>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/bootstrap-transition.js"></script>
+    <script src="bootstrap/js/bootstrap-alert.js"></script>
+    <script src="bootstrap/js/bootstrap-modal.js"></script>
+    <script src="bootstrap/js/bootstrap-dropdown.js"></script>
+    <script src="bootstrap/js/bootstrap-scrollspy.js"></script>
+    <script src="bootstrap/js/bootstrap-tab.js"></script>
+    <script src="bootstrap/js/bootstrap-tooltip.js"></script>
+    <script src="bootstrap/js/bootstrap-popover.js"></script>
+    <script src="bootstrap/js/bootstrap-button.js"></script>
+    <script src="bootstrap/js/bootstrap-collapse.js"></script>
+    <script src="bootstrap/js/bootstrap-carousel.js"></script>
+    <script src="bootstrap/js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>
